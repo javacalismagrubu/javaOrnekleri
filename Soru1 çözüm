@@ -1,0 +1,17 @@
+# javaOrnekleri
+public static void main(String[] args) {
+		boolean cont=false;
+		int toplam=0;
+		for(int i=0;i<1000;i++) {
+			if(i%3==0||i%5==0) {
+				cont=true;
+			}
+			if(cont) {
+				toplam+=i;
+			}
+			
+		}
+		
+		System.out.println(toplam);
+		
+	}
