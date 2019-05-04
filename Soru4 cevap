@@ -1,0 +1,29 @@
+# javaOrnekleri
+public class Fibonaci_sorusu {
+
+	public static void main(String[] args) {
+		int a=0;
+		int b=1;
+		int toplam=0;
+	    int sonuç=0;
+		while(b <4000000) {
+			System.out.println("a="+a);
+			System.out.println("b="+b);
+			toplam=a+b;
+			a=b;
+		    b=toplam;
+			
+		if(a%2==0&& b%2!=0) {
+			sonuç+=a;
+		}
+		else if(a%2!=0 && b%2==0) {
+			sonuç+=b;
+		}
+		else if(a%2==0 && b%2==0) {
+			sonuç=sonuç+a+b;
+		}
+		}
+		
+		System.out.println("400'den küçük çift sayıların toplamı:"+sonuç);
+	}
+}
