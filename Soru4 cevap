@@ -24,6 +24,6 @@ public class Fibonaci_sorusu {
 		}
 		}
 		
-		System.out.println("400'den küçük çift sayıların toplamı:"+sonuç);
+		System.out.println("4000000'dan küçük çift sayıların toplamı:"+sonuç);
 	}
 }
