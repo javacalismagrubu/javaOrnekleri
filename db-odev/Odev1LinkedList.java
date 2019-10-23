@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package odev1;
 
-/**
- *
- * @author muhammet
- */
 public class Odev1LinkedList<T extends Comparable<T>> extends AbstractLinkedList<T> {
     @Override
     public void insertInOrder(T value) {
