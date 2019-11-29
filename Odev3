@@ -1,0 +1,74 @@
+// 18253013 Muhammet Ali Berktaş
+
+import java.util.Comparator;
+import java.util.ArrayList;
+
+/**
+ * FrekansKarsilastirici sınıfı Huffman ağaçlarını köklerindeki frekans değerlerine göre
+ * karşılaştırır.
+ */
+class FrekansKarsilastirici implements Comparator<HuffmanNode> {
+
+    @Override
+    public int compare(HuffmanNode o1, HuffmanNode o2) {
+        return o1.frequency > o2.frequency ? 1 : o1.frequency < o2.frequency ? -1 : 0;
+    }
+}
+
+/**
+ * AlfabetikKarsilastirici sınıfı Huffman ağaçlarını içlerinde bulunan en küçük karakterlere
+ * göre karşılaştırır.
+ */
+class AlfabetikKarsilastirici implements Comparator<HuffmanNode> {
+ 
+    ArrayList<Character> firstTree = new ArrayList<Character>();
+    ArrayList<Character> secondTree = new ArrayList<Character>();
+    
+    
+    public boolean checkFirst(HuffmanNode o1){
+        if(o1 == null)
+            return true;
+        if(o1.left == null && o1.right == null ){
+            
+            firstTree.add(o1.value);
+        }
+        
+        return (checkFirst(o1.left) && checkFirst(o1.right));    
+    }
+    
+    public boolean checkSecond(HuffmanNode o2){
+        if(o2 == null)
+            return true;
+        if(o2.left == null && o2.right == null){
+
+            secondTree.add(o2.value);
+        }
+        
+        return (checkSecond(o2.left) && checkSecond(o2.right));
+    }
+
+    @Override
+    public int compare(HuffmanNode o1, HuffmanNode o2) {
+        checkFirst(o1);
+        checkSecond(o2);
+
+        
+        for(int i=0 ; i <firstTree.size() ; i++){
+          
+            if(firstTree.get(0) > firstTree.get(i))
+                firstTree.set(0,firstTree.get(i));
+        }
+        
+        for(int i=0 ;  i < secondTree.size() ; i++){
+          
+        
+        if(secondTree.get(0) > secondTree.get(i))
+            secondTree.set(0,secondTree.get(i));
+        }
+        
+        int tmpF = firstTree.get(0);
+        int tmpS = secondTree.get(0);
+        
+        return tmpF > tmpS ? 1 : tmpF < tmpS ? -1 : 0;
+    }
+}
